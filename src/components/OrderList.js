@@ -76,7 +76,8 @@ const OrderList = () => {
             <p>Processor: {order.processor.name}</p>
             <p>Motherboard: {order.motherboard.name}</p>
             <p>Video Card: {order.video_card ? order.video_card.name : 'N/A'}</p>
-            <p>Order RAM: {order.order_ram.rams.map(ram => ram.name).join(', ')}</p>
+            <p>Order RAM: {order.order_rams && order.order_rams.length > 0 ? 
+              order.order_rams.flatMap(order_ram => order_ram.rams.map(ram => ram.name)).join(', ') : 'N/A'}</p>
             <p>Created At: {new Date(order.created_at).toLocaleString()}</p>
             <p>Updated At: {new Date(order.updated_at).toLocaleString()}</p>
           </div>
